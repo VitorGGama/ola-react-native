@@ -1,20 +1,48 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import {
+  Alert,
+  Button,
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 
 export default function App() {
+  const vai = () => {
+    Alert.alert("Titulo", "Vai Corinthians!");
+  };
   return (
-    <View style={styles.container}>
-      <Text>React Native e Expo! 😎 </Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <StatusBar barStyle="light-content" />
+      <SafeAreaView style={estilos.container}>
+        <View style={estilos.cabecalho}>
+          <Text>Topo/Cabeçalho</Text>
+        </View>
+        <View style={estilos.conteudo}>
+          <Text>Conteúdo...</Text>
+        </View>
+        <View style={estilos.rodape}>
+          <Text>Rodapé...</Text>
+          <Button title="Toca aqui" onPress={vai} />
+        </View>
+      </SafeAreaView>
+    </>
   );
 }
 
-const styles = StyleSheet.create({
+const estilos = StyleSheet.create({
   container: {
+    backgroundColor: "lightblue",
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+  },
+  cabecalho: {
+    backgroundColor: "lightgreen",
+  },
+  conteudo: {
+    backgroundColor: "yellow",
+  },
+  rodape: {
+    backgroundColor: "orange",
   },
 });
